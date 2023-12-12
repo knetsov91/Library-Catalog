@@ -21,7 +21,9 @@ test("Verify Login button link is visible", async ( {page }) => {
 
 test("Verify Reg button link is visible", async ( {page }) => {
     await page.goto(pageUrl);
-    await page.waitForSelector("#site-header > nav")
+    // await page.waitForSelector("#site-header > nav")
+    await page.locator("xpath=/html/body/div/header/nav/section/div[1]/a[2]")
+
     const registerButton = await page.$("a[href='/register']")
     const isRegisterButtonVisible = await registerButton.isVisible()
     expect(isRegisterButtonVisible).toBe(true)
